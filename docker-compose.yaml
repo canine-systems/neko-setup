@@ -17,7 +17,7 @@ services:
     image: rflathers/nginxserve
     restart: always
     volumes:
-      - ${PWD}/nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
     ports:
       - "443:443"
       - "59000-59100:59000-59100/udp"
