@@ -4,20 +4,14 @@ services:
     image: nurdism/neko:firefox
     restart: always
     shm_size: "1gb"
-    #ports:
-      #- "80:8080"
-      #- "443:8080"
-      #- "59000-59100:59000-59100/udp"
+    command: /bin/bash -c "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /server.key -out /server.crt -subj '/CN=www.example.com' && chown neko:neko /server.key /server.crt && /usr/bin/supervisord -c /etc/neko/supervisord.conf"
+    ports:
+      - "443:8080"
+      - "59000-59100:59000-59100/udp"
     environment:
       DISPLAY: :99.0
       NEKO_PASSWORD: neko
       NEKO_ADMIN: admin
       NEKO_BIND: :8080
-  nginx:
-    image: rflathers/nginxserve
-    restart: always
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-    ports:
-      - "443:443"
-      - "59000-59100:59000-59100/udp"
+      NEKO_KEY: /server.key
+      NEKO_CERT: /server.crt
