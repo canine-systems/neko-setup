@@ -10,7 +10,9 @@ services:
       - "59000-59100:59000-59100/udp"
     environment:
       DISPLAY: :99.0
+      # The value of $NEKO_PASSWORD is the non-admin password.
       NEKO_PASSWORD: neko
+      # The value of $NEKO_ADMIN is the admin password.
       NEKO_ADMIN: admin
       NEKO_BIND: :8080
       NEKO_KEY: /server.key
