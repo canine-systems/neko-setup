@@ -4,7 +4,9 @@ services:
     image: nurdism/neko:firefox
     restart: always
     shm_size: "1gb"
-    command: /bin/bash -c "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /server.key -out /server.crt -subj '/CN=www.example.com' && chown neko:neko /server.key /server.crt && /usr/bin/supervisord -c /etc/neko/supervisord.conf"
+    # The `sed -i 's/neko serve -d --static/...' ...` command is to disable
+    # debug mode, since that logs all keypresses.
+    command: /bin/bash -c "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /server.key -out /server.crt -subj '/CN=www.example.com' && chown neko:neko /server.key /server.crt && sed -i 's/neko serve -d --static/neko serve --static/' /etc/neko/supervisord/neko.conf && /usr/bin/supervisord -c /etc/neko/supervisord.conf"
     ports:
       - "443:8080"
       - "59000-59100:59000-59100/udp"
