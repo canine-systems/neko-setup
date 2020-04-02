@@ -1,5 +1,11 @@
 version: "2.0"
 services:
+  http2https:
+    image: duckinator/http2https:latest
+    ports:
+      - "80:80"
+    environment:
+      DOMAIN: stream.canine.systems
   neko:
     image: nurdism/neko:firefox
     volumes:
