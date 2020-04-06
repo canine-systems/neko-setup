@@ -21,9 +21,9 @@ services:
     environment:
       DISPLAY: :99.0
       # The value of $NEKO_PASSWORD is the non-admin password.
-      NEKO_PASSWORD: {{VIEW_PASSWORD}}
-      # The value of $NEKO_ADMIN is the admin password.
-      NEKO_ADMIN: {{ADMIN_PASSWORD}}
+      NEKO_PASSWORD: {{NEKO_PASSWORD}}
+      # The value of $NEKO_PASSWORD_ADMIN is the admin password.
+      NEKO_PASSWORD_ADMIN: {{NEKO_PASSWORD_ADMIN}}
       NEKO_BIND: :8080
       NEKO_KEY: /cert/server.key
       NEKO_CERT: /cert/server.crt
