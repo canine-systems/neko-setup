@@ -13,4 +13,4 @@ source neko.env
 
 cat docker-compose.yaml.template | sed "s/{{NEKO_PASSWORD}}/$NEKO_PASSWORD/" | sed "s/{{NEKO_PASSWORD_ADMIN}}/$NEKO_PASSWORD_ADMIN/" > docker-compose.yaml
 
-docker-compose up --build "$@"
+docker-compose up -d --build "$@"
