@@ -2,7 +2,7 @@
 
 TL;DR:
 
-1. Create the droplet DigitalOcean:
+1. Create the droplet on DigitalOcean:
    * On DigitalOcean's website, Create -> Droplet
    * From the Marketplace tab, choose "Docker $VERSION on Ubuntu 20.04"
    * Choose the "Basic" $40/mo option (8GB RAM / 4 CPUs)
