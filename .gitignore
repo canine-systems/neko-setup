@@ -2,3 +2,4 @@
 neko.env
 docker-compose.yaml
 /cert/
+digital_ocean.env
