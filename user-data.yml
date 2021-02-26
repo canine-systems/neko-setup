@@ -8,6 +8,6 @@ users:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDalqg6EtYNXOkfsWxUv5Nb9LrVLk2Z/q6YwQxJc3Duw4HfCzCBem21cAPb0NqJ1S+s4Gz+WrrN789xAgrFLQF1ZDHQomjiVOSyejbkiM9uugQV/TTO7omQNZ/BK640bu0AAsggVSzfeSWlkM/EO8weFFSM0qwPxHoCaGKozgUB8iEhaUif5Khkp4DT/MLAfnCFu5K8cov15C5xraRX/TWSiRe+5S48nAf/uQ4e51TCrk/f8qICXwhYonmWQIXCMKTrXD8AG5C05b8C/YsawLnHIQEFxuV0Q/oEuXCdQSSp0oMA1z007RjLDsGKf2ySZtVlJvlKWxRgG1JEb2rSrqs4xZPIY2jgNbb0By5wz921DX68AmoYwhi+6ZvXjL2shMifUmq0paUllyU8S1POD9n0Ho4H3DiU0bQRahTntoHQok7GjdOl0Ip13iY0IGEivvenDMM7/9VmFqHfqqRUAMxMpE6Cl3JxiVVYoiotqLluvx7M247xzS5gZPlJpjFU8N93O9KDnQPKaYQ0U5235nVulLR19bG1ef4VeczDTI/RLEmIkSfheE5PkLh3cAEjXFlA2W2hFH9EqwuuOojI7OYDLDD7bFK4vBLnWYI87O9zsFRKw3HICVdvKRUstCCsgkYOCX8fH7Xczqdy2JMAUdC7dcz03cwMShBgjY9+4gLgKQ==
 runcmd:
   - git clone https://github.com/canine-systems/neko-setup.git /home/neko/neko-setup
-  - echo 'NEKO_PASSWORD="{{NEKO_PASSWORD}}"' > /home/neko/neko-setup/neko.env
-  - echo 'NEKO_PASSWORD_ADMIN="{{NEKO_PASSWORD_ADMIN}}"' >> /home/neko/neko-setup/neko.env
+  - echo 'NEKO_PASSWORD="${view_password}"' > /home/neko/neko-setup/neko.env
+  - echo 'NEKO_PASSWORD_ADMIN="${admin_password}"' >> /home/neko/neko-setup/neko.env
   - /home/neko/neko-setup/start.sh

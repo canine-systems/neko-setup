@@ -3,3 +3,10 @@ neko.env
 docker-compose.yaml
 /cert/
 digital_ocean.env
+
+# Terraform files
+*.tfstate
+.terraform/
+*.tfstate.backup
+.terraform.lock.hcl
+*.tfvars
